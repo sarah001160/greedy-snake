@@ -30,6 +30,48 @@ snake[3]={
     y:0,
 }
 
+class Fruit{
+    constructor(){
+        this.x = Math.floor(Math.random()* column)*unit;
+        this.y = Math.floor(Math.random()* row)*unit;
+    }
+    drawFruit(){
+        ctx.fillStyle = "yellow";
+        ctx.fillRect(this.x, this.y, unit, unit)
+    }
+    pickALocation(){ //選定一個新的隨機座標,不能跟蛇的位置重疊
+        let overlapping = false;
+        let new_x;
+        let new_y;
+    
+        function checkOverlap(new_x, new_y){//用來檢查新果實的x,y座標是否重疊到蛇的xy座標
+            for(let i = 0; i < snake.length; i++){
+                if(new_x == snake[i].x && new_y == snake[i].y){
+                    overlapping = true;
+                    return;
+                }else{
+                    overlapping = false;
+                }
+            }
+        }
+
+        //do while loop邏輯是先做do,如果while()裡面的條件仍為True就要一直做do,直到while的條件變成false為止
+        do{
+            new_x = Math.floor(Math.random()*column)*unit
+            new_y = Math.floor(Math.random()*row)*unit
+            checkOverlap(new_x, new_y);
+        }while(overlapping)//若overlapping是true要繼續做do
+        this.x = new_x;
+        this.y=new_y;
+    
+    }
+}
+
+let myFruit = new Fruit();
+
+
+
+
 let d = "Right"; //direction
 window.addEventListener('keydown',changeDirection);
 function changeDirection(e){
@@ -51,6 +93,11 @@ function draw(){
     //背景全設定為黑色(這樣蛇才會有移動的感覺)
    ctx.fillStyle="black";
    ctx.fillRect(0,0, canvas.width, canvas.clientHeight);
+
+//畫果實Fruit
+    myFruit.drawFruit();
+
+
    
    //畫出蛇
     // console.log("it is running draw()")
@@ -102,9 +149,20 @@ function draw(){
         y:snakeY,
     }
 
+
+
     //確認蛇是否有吃到果實
-    snake.pop();
-    snake.unshift(newHead);
+    //確認蛇頭的xy座標是否等於果實的xy座標
+    if(snake[0].x == myFruit.x && snake[0].y == myFruit.y){
+        //重新選定一個新的隨機位置
+        myFruit.pickALocation();
+        //畫出新果實
+        myFruit.drawFruit();
+        //更新分數
+    }else{
+        snake.pop(); 
+    }
+    snake.unshift(newHead); 
 
 }
 
