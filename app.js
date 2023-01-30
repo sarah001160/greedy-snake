@@ -5,7 +5,7 @@ const ctx = canvas.getContext("2d");
 //drawing context可以用來在canvas畫圖
 
 const unit = 20;
-const row = canvas.height / unit; // 320/20=16
+const row = canvas.height / unit; // 400/20=20
 const column = canvas.width / unit; // 320/20=16
 
 let snake = [];//array中的每個元素，都是一個物件
@@ -111,8 +111,9 @@ function draw(){
     }
 
     //每100毫秒,背景黑色覆蓋掉前一幀,再重新畫出新座標蛇(這樣蛇才會有移動的感覺)
-   ctx.fillStyle="black";
-   ctx.fillRect(0,0, canvas.width, canvas.clientHeight);
+  // ctx.fillStyle="black";
+  ctx.fillStyle="#35a135";  
+  ctx.fillRect(0,0, canvas.width, canvas.clientHeight);
 
     //畫果實Fruit
     myFruit.drawFruit();
@@ -122,11 +123,11 @@ function draw(){
    //畫出蛇
     for(let i=0; i<snake.length; i++){
         if(i ==0){
-            ctx.fillStyle = "lightgreen";//實心顏色設定
+            ctx.fillStyle = "#A52A2A";//實心顏色設定
         }else{
-            ctx.fillStyle = "lightblue";//實心顏色設定
+            ctx.fillStyle = "#B1907F";//實心顏色設定
         }
-        ctx.strokeStyle = "white";//外框顏色設定
+        ctx.strokeStyle = "#9E4638";//外框顏色設定
 
         //蛇 穿牆
         if(snake[i].x >= canvas.width){
