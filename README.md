@@ -2,7 +2,7 @@
 Greedy Snake. 
 Learning from 2023網頁全端開發 at Udemy.
 
-1.HTML的 <canvas> 元素是用來畫製圖(座標式)的，用JavaScript畫在畫布(fly)上， 
+1.HTML的```<canvas>``` 元素是用來畫製圖(座標式)的，用JavaScript畫在畫布(fly)上， 
   
   <canvas>這個HTML元素只是graphics的 container，實際上你必須用JavaScript寫出製圖。
     
