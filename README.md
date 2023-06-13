@@ -17,11 +17,9 @@ Learning from 2023網頁全端開發 at Udemy.
     
     直接在html的button裡面寫上onclick ="window.location.reload()” 即可
   
-  2.Canvas裡面，這是一個比較特別的規則你要把它記起來，
+  2.Canvas裡面，(不論你是在HTML裡面畫canvas還是Java還是其他程式語言裡面)，
   
-  不論你是在HTML裡面畫canvas還是Java還是其他程式語言裡面，
-  
-  你在畫畫布的時候，它的Ｘ座標越往右邊X越大；Y座標是往下Y越大。 
+  你在畫畫布的時候，它的Ｘ座標越往右邊X越大；Y座標是往下Y越大。 (和數學的座標不一樣)
   
   最左上角的原點座標為(0,0)
   
