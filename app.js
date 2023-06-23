@@ -62,7 +62,7 @@ class Fruit{
         do{
             new_x = Math.floor(Math.random()*column)*unit
             new_y = Math.floor(Math.random()*row)*unit
-            console.log("果實可能的新位置"+new_x,new_y)
+           // console.log("果實可能的新位置"+new_x,new_y)
             checkOverlap(new_x, new_y);
         }while(overlapping)//若overlapping是true要繼續做do
         this.x = new_x;
@@ -76,7 +76,7 @@ let myFruit = new Fruit();
 window.addEventListener('keydown',changeDirection);//監聽鍵盤按下事件
 let d = "Right"; //direction
 function changeDirection(e){
-    console.log(e);
+    //console.log(e);
     if(e.key == "ArrowRight" && d!="Left"){
         d= "Right"
     }else if(e.key == "ArrowLeft" && d!="Right"){
